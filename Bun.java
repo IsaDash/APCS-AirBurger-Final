@@ -1,4 +1,4 @@
-package src;
+
 
 import java.awt.Image;
 import java.awt.Rectangle;
@@ -18,26 +18,25 @@ import javax.swing.*;
  */
 public class Bun {
 
-	
+    
 
-	private Image image;
+    private Image image;
 
-	//Fields for coordinates, speed
-	double speedx;
-	double speedy;
-	public int x;
-	public int y;
-	public double speed = 3.0;
-	private Timer timer;
+    //Fields for coordinates, speed
+    double speedx;
+    double speedy;
+    public int x;
+    public int y;
+    public double speed = 3.0;
+    private Timer timer;
 
-	// Bun dimension
-	private int width;
-	public int height;
-	
-	public void lessenSpeed()
-	{
-		speed = speed - 0.5;
-	}
+    public void lessenSpeed()
+    {
+    	speed = speed - 0.5;
+    }
+    // Bun dimension
+    private int width;
+    public int height;
 
     // Whether bun is visible
     private boolean visible;
@@ -162,7 +161,7 @@ public class Bun {
         }
         if (key == KeyEvent.VK_LEFT)
         {
-            speedx = speed * -1;
+            speedx = speed * -1.0;
         }
     }
 

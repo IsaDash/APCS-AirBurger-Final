@@ -1,10 +1,10 @@
-package src;
+
 import java.util.Scanner;
 
 import javax.swing.*;
 
 /**
- *  The AirBurger class launches the entire game.
+ *  The AirBurger class launcheesesAL the entire game.
  *  
  *  The constructor generates the JFrame, which is the window that will pop up.
  *  It adds an Order object to the frame to create the current "round"
@@ -42,7 +42,7 @@ public class AirBurger extends JFrame
     }
 
     /**
-     * main method. this prompts the player for their username and launches game.
+     * main method. this prompts the player for their username and launcheesesAL game.
      * @param args default
      * @throws Exception
      */
@@ -62,7 +62,7 @@ public class AirBurger extends JFrame
         }
         catch ( Exception e )
         {
-            // TODO Auto-generated catch block
+            // Auto-generated catch block
             e.printStackTrace();
         }
         

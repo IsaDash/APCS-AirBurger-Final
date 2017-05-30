@@ -1,4 +1,4 @@
-package src;
+
 import java.awt.Image;
 import java.awt.Rectangle;
 
@@ -75,7 +75,7 @@ public class Tomato {
 	}
 
 	/**
-	 * ingredient stops falling
+	 * ingredient stopBunsAL falling
 	 */
 	public void stopFall() {
 		this.fall = false;
@@ -96,7 +96,7 @@ public class Tomato {
 	 * 
 	 * @return x coordinate x
 	 */
-	public int getXA() {
+	public int getXCoord() {
 		return x;
 	}
 
@@ -105,7 +105,7 @@ public class Tomato {
 	 * 
 	 * @return y coordinate y
 	 */
-	public int getYA() {
+	public int getYCoord() {
 		return y;
 	}
 
@@ -123,7 +123,7 @@ public class Tomato {
 	 * 
 	 * @return stacked ingredient is stacked
 	 */
-	public boolean isStack() {
+	public boolean hasBeenStacked() {
 		return stacked;
 	}
 

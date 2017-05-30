@@ -1,4 +1,4 @@
-package src;
+
 import static org.junit.Assert.*;
 
 import javax.swing.ImageIcon;
@@ -45,23 +45,23 @@ public class JUAirBurgerTest
     }
     
     /**
-     * Test getXA method of Lettuce class
+     * Test getXCoord method of Lettuce class
      */
     @Test
-    public void testLetgetXA()
+    public void testLetgetXCoord()
     {
         Lettuce let = new Lettuce(0,3);
-        assertTrue(let.getXA() == 0);
+        assertTrue(let.getXCoord() == 0);
     }
     
     /**
-     * Test getYA method of Lettuce class
+     * Test getYCoord method of Lettuce class
      */
     @Test
-    public void testLetgetYA()
+    public void testLetgetYCoord()
     {
         Lettuce let = new Lettuce(3,0);
-        assertTrue(let.getYA() == 0);
+        assertTrue(let.getYCoord() == 0);
                         
     }
     
@@ -86,7 +86,7 @@ public class JUAirBurgerTest
     {
         Lettuce let = new Lettuce(0,3);
         let.move( 4 );
-        assertTrue(let.getXA() == 4);
+        assertTrue(let.getXCoord() == 4);
     }
     
     
@@ -116,23 +116,23 @@ public class JUAirBurgerTest
     }
     
     /**
-     * Test getXA method of Tomato class
+     * Test getXCoord method of Tomato class
      */
     @Test
-    public void testTomgetXA()
+    public void testTomgetXCoord()
     {
         Tomato tom = new Tomato(0,3);
-        assertTrue(tom.getXA() == 0);
+        assertTrue(tom.getXCoord() == 0);
     }
     
     /**
-     * Test getYA method of Tomato class
+     * Test getYCoord method of Tomato class
      */
     @Test
-    public void testTomgetYA()
+    public void testTomgetYCoord()
     {
         Tomato tom = new Tomato(3,0);
-        assertTrue(tom.getYA() == 0);
+        assertTrue(tom.getYCoord() == 0);
                         
     }
     
@@ -157,7 +157,7 @@ public class JUAirBurgerTest
     {
         Tomato tom = new Tomato(0,3);
         tom.move( 4 );
-        assertTrue(tom.getXA() == 4);
+        assertTrue(tom.getXCoord() == 4);
     }
 
 
@@ -186,23 +186,23 @@ public class JUAirBurgerTest
     }
     
     /**
-     * Test getXA method of Meat class
+     * Test getXCoord method of Meat class
      */
     @Test
-    public void testMeatgetXA()
+    public void testMeatgetXCoord()
     {
         Meat meat = new Meat(0,3);
-        assertTrue(meat.getXA() == 0);
+        assertTrue(meat.getXCoord() == 0);
     }
     
     /**
-     * Test getYA method of Meat class
+     * Test getYCoord method of Meat class
      */
     @Test
-    public void testMeatgetYA()
+    public void testMeatgetYCoord()
     {
         Meat meat = new Meat(3,0);
-        assertTrue(meat.getYA() == 0);
+        assertTrue(meat.getYCoord() == 0);
                         
     }
     
@@ -227,7 +227,7 @@ public class JUAirBurgerTest
     {
         Tomato tom = new Tomato(0,3);
         tom.move( 4 );
-        assertTrue(tom.getXA() == 4);
+        assertTrue(tom.getXCoord() == 4);
     }
     
     
@@ -256,23 +256,23 @@ public class JUAirBurgerTest
     }
     
     /**
-     * Test getXA method of Onion class
+     * Test getXCoord method of Onion class
      */
     @Test
-    public void testOnigetXA()
+    public void testOnigetXCoord()
     {
         Onion oni = new Onion(0,3);
-        assertTrue(oni.getXA() == 0);
+        assertTrue(oni.getXCoord() == 0);
     }
     
     /**
-     * Test getYA method of Onion class
+     * Test getYCoord method of Onion class
      */
     @Test
-    public void testOnigetYA()
+    public void testOnigetYCoord()
     {
         Onion oni = new Onion(3,0);
-        assertTrue(oni.getYA() == 0);
+        assertTrue(oni.getYCoord() == 0);
                         
     }
     
@@ -297,7 +297,7 @@ public class JUAirBurgerTest
     {
         Onion oni = new Onion(0,3);
         oni.move( 4 );
-        assertTrue(oni.getXA() == 4);
+        assertTrue(oni.getXCoord() == 4);
     }
 
 
@@ -326,23 +326,23 @@ public class JUAirBurgerTest
     }
     
     /**
-     * Test getXA method of Cheese class
+     * Test getXCoord method of Cheese class
      */
     @Test
-    public void testChgetXA()
+    public void testChgetXCoord()
     {
         Cheese tom = new Cheese(0,3);
-        assertTrue(tom.getXA() == 0);
+        assertTrue(tom.getXCoord() == 0);
     }
     
     /**
-     * Test getYA method of Cheese class
+     * Test getYCoord method of Cheese class
      */
     @Test
-    public void testChgetYA()
+    public void testChgetYCoord()
     {
         Cheese tom = new Cheese(3,0);
-        assertTrue(tom.getYA() == 0);
+        assertTrue(tom.getYCoord() == 0);
                         
     }
     
@@ -355,7 +355,7 @@ public class JUAirBurgerTest
     {
         Tomato tom = new Tomato(0,3);
         tom.move( 4 );
-        assertTrue(tom.getXA() == 4);
+        assertTrue(tom.getXCoord() == 4);
     }
     
     
@@ -384,23 +384,23 @@ public class JUAirBurgerTest
     }
     
     /**
-     * Test getXA method of Pickle class
+     * Test getXCoord method of Pickle class
      */
     @Test
-    public void testPigetXA()
+    public void testPigetXCoord()
     {
         Pickle tom = new Pickle(0,3);
-        assertTrue(tom.getXA() == 0);
+        assertTrue(tom.getXCoord() == 0);
     }
     
     /**
-     * Test getYA method of Pickle class
+     * Test getYCoord method of Pickle class
      */
     @Test
-    public void testPigetYA()
+    public void testPigetYCoord()
     {
         Pickle tom = new Pickle(3,0);
-        assertTrue(tom.getYA() == 0);
+        assertTrue(tom.getYCoord() == 0);
                         
     }
     
@@ -425,7 +425,7 @@ public class JUAirBurgerTest
     {
         Pickle tom = new Pickle(0,3);
         tom.move( 4 );
-        assertTrue(tom.getXA() == 4);
+        assertTrue(tom.getXCoord() == 4);
     }
 
 
@@ -545,8 +545,8 @@ public class JUAirBurgerTest
         
         frw.putInMap(cashEarned, username);
         
-        frw.write("test1.txt");
-        frw.read( "test1.txt" );
+        frw.write("tesfirstTomato.txt");
+        frw.read( "tesfirstTomato.txt" );
         assertTrue("<<FileReaderAndWriter: text file should contain elements "
             + "from Map users", frw.getUsers().get( cashEarned ).contains( username));
         

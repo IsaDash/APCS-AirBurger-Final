@@ -1,4 +1,4 @@
-package src;
+
 
 import java.util.ArrayList;
 import javax.swing.*;
@@ -20,21 +20,21 @@ public class Order extends JComponent implements ActionListener {
     double cash = 0;
     
     // Lists of ingredients
-    private ArrayList<Lettuce> lets;
-    private ArrayList<Meat> meats;
-    private ArrayList<Tomato> toms;
-    private ArrayList<Onion> onis;
-    private ArrayList<Pickle> pics;
-    private ArrayList<Cheese> ches;
-    private ArrayList<TopBun> tops;
+    private ArrayList<Lettuce> lettuceAL;
+    private ArrayList<Meat> meatsAL;
+    private ArrayList<Tomato> tomatoesAL;
+    private ArrayList<Onion> onionsAL;
+    private ArrayList<Pickle> picklesAL;
+    private ArrayList<Cheese> cheesesAL;
+    private ArrayList<TopBun> topBunsAL;
 
     // Number of each ingredient
-    int lettuceN;
-    int meatN;
-    int tomatoN;
-    int onionN;
-    int pickleN;
-    int cheeseN;
+    int numOfLettuce;
+    int numOfMeat;
+    int numOfTomato;
+    int numOfOnion;
+    int numOfPickle;
+    int numOfCheese;
     boolean topbunB;
 
     // Indicates if game is won
@@ -120,7 +120,8 @@ public class Order extends JComponent implements ActionListener {
         this.addKeyListener(new TAdapter());
 
         this.setFocusable(true);
-        this.setBackground(Color.CYAN);
+        this.setOpaque(true);
+        this.setBackground(new Color(158, 232, 239));
 
         this.setDoubleBuffered(true);
         this.setSize(800, 700);
@@ -135,12 +136,12 @@ public class Order extends JComponent implements ActionListener {
         initToppings();
 
         // Order generated for each ingredient
-        lettuceN = generateOrder();
-        meatN = generateOrder();
-        tomatoN = generateOrder();
-        onionN = generateOrder();
-        pickleN = generateOrder();
-        cheeseN = generateOrder();
+        numOfLettuce = generateOrder();
+        numOfMeat = generateOrder();
+        numOfTomato = generateOrder();
+        numOfOnion = generateOrder();
+        numOfPickle = generateOrder();
+        numOfCheese = generateOrder();
 
         // Top bun not collected yet
         topbunB = false;
@@ -164,22 +165,22 @@ public class Order extends JComponent implements ActionListener {
      * creates new objects of each ingredient and adds to arraylist
      */
     public void initToppings() {
-        lets = new ArrayList<Lettuce>();
-        meats = new ArrayList<Meat>();
-        toms = new ArrayList<Tomato>();
-        onis = new ArrayList<Onion>();
-        pics = new ArrayList<Pickle>();
-        ches = new ArrayList<Cheese>();
-        tops = new ArrayList<TopBun>();
+        lettuceAL = new ArrayList<Lettuce>();
+        meatsAL = new ArrayList<Meat>();
+        tomatoesAL = new ArrayList<Tomato>();
+        onionsAL = new ArrayList<Onion>();
+        picklesAL = new ArrayList<Pickle>();
+        cheesesAL = new ArrayList<Cheese>();
+        topBunsAL = new ArrayList<TopBun>();
 
         for (int i = 0; i < loc.length; i++) {
-            lets.add(new Lettuce(loc[i][0], loc[i][1]));
-            meats.add(new Meat(meatLoc[i][0], meatLoc[i][1]));
-            toms.add(new Tomato(tomLoc[i][0], tomLoc[i][1]));
-            onis.add(new Onion(oniLoc[i][0], oniLoc[i][1]));
-            pics.add(new Pickle(picLoc[i][0], picLoc[i][1]));
-            ches.add(new Cheese(cheLoc[i][0], cheLoc[i][1]));
-            tops.add(new TopBun(topLoc[i][0], topLoc[i][1]));
+            lettuceAL.add(new Lettuce(loc[i][0], loc[i][1]));
+            meatsAL.add(new Meat(meatLoc[i][0], meatLoc[i][1]));
+            tomatoesAL.add(new Tomato(tomLoc[i][0], tomLoc[i][1]));
+            onionsAL.add(new Onion(oniLoc[i][0], oniLoc[i][1]));
+            picklesAL.add(new Pickle(picLoc[i][0], picLoc[i][1]));
+            cheesesAL.add(new Cheese(cheLoc[i][0], cheLoc[i][1]));
+            topBunsAL.add(new TopBun(topLoc[i][0], topLoc[i][1]));
         }
     }
 
@@ -201,34 +202,34 @@ public class Order extends JComponent implements ActionListener {
             }
 
             // Paint each ingredient's GUI
-            for (int i = 0; i < lets.size(); i++) {
-                Lettuce a = (Lettuce) lets.get(i);
+            for (int i = 0; i < lettuceAL.size(); i++) {
+                Lettuce a = (Lettuce) lettuceAL.get(i);
                 if (a.isVisible())
-                    g2d.drawImage(a.getImage(), a.getXA(), a.getYA(), this);
+                    g2d.drawImage(a.getImage(), a.getXCoord(), a.getYCoord(), this);
 
-                Meat m = (Meat) meats.get(i);
+                Meat m = (Meat) meatsAL.get(i);
                 if (a.isVisible())
-                    g2d.drawImage(m.getImage(), m.getXA(), m.getYA(), this);
+                    g2d.drawImage(m.getImage(), m.getXCoord(), m.getYCoord(), this);
 
-                Tomato t = (Tomato) toms.get(i);
+                Tomato t = (Tomato) tomatoesAL.get(i);
                 if (t.isVisible())
-                    g2d.drawImage(t.getImage(), t.getXA(), t.getYA(), this);
+                    g2d.drawImage(t.getImage(), t.getXCoord(), t.getYCoord(), this);
 
-                Onion o = (Onion) onis.get(i);
+                Onion o = (Onion) onionsAL.get(i);
                 if (o.isVisible())
-                    g2d.drawImage(o.getImage(), o.getXA(), o.getYA(), this);
+                    g2d.drawImage(o.getImage(), o.getXCoord(), o.getYCoord(), this);
 
-                Pickle p = (Pickle) pics.get(i);
+                Pickle p = (Pickle) picklesAL.get(i);
                 if (p.isVisible())
-                    g2d.drawImage(p.getImage(), p.getXA(), p.getYA(), this);
+                    g2d.drawImage(p.getImage(), p.getXCoord(), p.getYCoord(), this);
 
-                Cheese c = (Cheese) ches.get(i);
+                Cheese c = (Cheese) cheesesAL.get(i);
                 if (c.isVisible())
-                    g2d.drawImage(c.getImage(), c.getXA(), c.getYA(), this);
+                    g2d.drawImage(c.getImage(), c.getXCoord(), c.getYCoord(), this);
 
-                TopBun b = (TopBun) tops.get(i);
+                TopBun b = (TopBun) topBunsAL.get(i);
                 if (b.isVisible())
-                    g2d.drawImage(b.getImage(), b.getXA(), b.getYA(), this);
+                    g2d.drawImage(b.getImage(), b.getXCoord(), b.getYCoord(), this);
             }
 
             // Shows the order on the screen, along with the cost and the number
@@ -238,12 +239,12 @@ public class Order extends JComponent implements ActionListener {
 
             g2d.setColor(Color.BLACK);
             g2d.setFont(small);
-            g2d.drawString("Lettuce: " + lettuceN, 5, 20);
-            g2d.drawString("Meat:   " + meatN, 5, 40);
-            g2d.drawString("Tomato:  " + tomatoN, 5, 60);
-            g2d.drawString("Onion:   " + onionN, 5, 80);
-            g2d.drawString("Pickle:  " + pickleN, 5, 100);
-            g2d.drawString("Cheese:  " + cheeseN, 5, 120);
+            g2d.drawString("Lettuce: " + numOfLettuce, 5, 20);
+            g2d.drawString("Meat:   " + numOfMeat, 5, 40);
+            g2d.drawString("Tomato:  " + numOfTomato, 5, 60);
+            g2d.drawString("Onion:   " + numOfOnion, 5, 80);
+            g2d.drawString("Pickle:  " + numOfPickle, 5, 100);
+            g2d.drawString("Cheese:  " + numOfCheese, 5, 120);
             // Shows the money earned
 
             g2d.drawString("Cash Earned: " + "$" + cash + "0", 500, 20);
@@ -254,44 +255,44 @@ public class Order extends JComponent implements ActionListener {
             {
                 
                 String msg = "Burger done! You got $" + cash + "0" + "!";
-                Font small2 = new Font("Arial", Font.PLAIN, 40);
-                FontMetrics metr2 = this.getFontMetrics(small2);
+                Font fontSize = new Font("Arial", Font.PLAIN, 40);
+                FontMetrics fontMet = this.getFontMetrics(fontSize);
 
                 g.setColor(Color.BLACK);
-                g.setFont(small2);
-                g.drawString(msg, (B_WIDTH - metr2.stringWidth(msg)) / 2, B_HEIGHT / 2);
+                g.setFont(fontSize);
+                g.drawString(msg, (B_WIDTH - fontMet.stringWidth(msg)) / 2, B_HEIGHT / 2);
                 gameInProgress = false;
             }
 
             else if (topbunB && !win) // If top bun collected but order not finished
             {
                 String msg = "Incomplete";
-                Font small3 = new Font("Arial", Font.PLAIN, 80);
-                FontMetrics metrHit = this.getFontMetrics(small3);
+                Font fontSize1 = new Font("Arial", Font.PLAIN, 80);
+                FontMetrics fo = this.getFontMetrics(fontSize1);
 
                 g.setColor(Color.BLACK);
-                g.setFont(small3);
-                g.drawString(msg, (B_WIDTH - metrHit.stringWidth(msg)) / 2, B_HEIGHT / 2);
+                g.setFont(fontSize1);
+                g.drawString(msg, (B_WIDTH - fo.stringWidth(msg)) / 2, B_HEIGHT / 2);
                 gameInProgress = false;
             }
             else if(tries <= 0){
                 String msg = "Game Over";
-                Font small4 = new Font("Arial", Font.PLAIN, 65);
-                FontMetrics metr1 = this.getFontMetrics(small4);
+                Font font2 = new Font("Arial", Font.PLAIN, 65);
+                FontMetrics fontmetric = this.getFontMetrics(font2);
 
                 g.setColor(Color.BLACK);
-                g.setFont(small4);
-                g.drawString(msg, (B_WIDTH - metr1.stringWidth(msg)) / 2, B_HEIGHT / 2);
+                g.setFont(font2);
+                g.drawString(msg, (B_WIDTH - fontmetric.stringWidth(msg)) / 2, B_HEIGHT / 2);
                 gameInProgress= false;
             }
         } else {
             String msg = "Game Over";
-            Font small4 = new Font("Arial", Font.PLAIN, 65);
-            FontMetrics metr1 = this.getFontMetrics(small4);
+            Font font2 = new Font("Arial", Font.PLAIN, 65);
+            FontMetrics fontmetric = this.getFontMetrics(font2);
 
             g.setColor(Color.BLACK);
-            g.setFont(small4);
-            g.drawString(msg, (B_WIDTH - metr1.stringWidth(msg)) / 2, B_HEIGHT / 2);
+            g.setFont(font2);
+            g.drawString(msg, (B_WIDTH - fontmetric.stringWidth(msg)) / 2, B_HEIGHT / 2);
             gameNotEnded = false;
             
         }
@@ -311,46 +312,46 @@ public class Order extends JComponent implements ActionListener {
         bun.move();
 
         // Updates the location of each ingredient
-        for (int i = 0; i < lets.size(); i++) {
-            Lettuce lettu = (Lettuce) lets.get(i);
-            if (!lettu.isStack())
+        for (int i = 0; i < lettuceAL.size(); i++) {
+            Lettuce lettu = (Lettuce) lettuceAL.get(i);
+            if (!lettu.hasBeenStacked())
                 lettu.continueFall();
             else
                 lettu.move(bun.getX());
 
-            Meat mea = (Meat) meats.get(i);
-            if (!mea.isStack())
+            Meat mea = (Meat) meatsAL.get(i);
+            if (!mea.hasBeenStacked())
                 mea.continueFall();
             else
                 mea.move(bun.getX());
 
-            Tomato tomat = (Tomato) toms.get(i);
-            if (!tomat.isStack())
+            Tomato tomat = (Tomato) tomatoesAL.get(i);
+            if (!tomat.hasBeenStacked())
                 tomat.continueFall();
             else
                 tomat.move(bun.getX());
 
-            Onion onio = (Onion) onis.get(i);
-            if (!onio.isStack())
+            Onion onio = (Onion) onionsAL.get(i);
+            if (!onio.hasBeenStacked())
                 onio.continueFall();
             else
                 onio.move(bun.getX());
 
-            Pickle pickl = (Pickle) pics.get(i);
-            if (!pickl.isStack())
+            Pickle pickl = (Pickle) picklesAL.get(i);
+            if (!pickl.hasBeenStacked())
                 pickl.continueFall();
             else
                 pickl.move(bun.getX());
 
-            Cheese chees = (Cheese) ches.get(i);
-            if (!chees.isStack())
+            Cheese chees = (Cheese) cheesesAL.get(i);
+            if (!chees.hasBeenStacked())
                 chees.continueFall();
             else
                 chees.move(bun.getX());
 
-            TopBun topBu = (TopBun) tops.get(i);
+            TopBun topBu = (TopBun) topBunsAL.get(i);
 
-            if (!topBu.isStack())
+            if (!topBu.hasBeenStacked())
                 topBu.continueFall();
             else
                 topBu.move(bun.getX());
@@ -375,335 +376,335 @@ public class Order extends JComponent implements ActionListener {
             tries = 3;
         }
 
-        Lettuce a1 = (Lettuce) lets.get(0);
-        Rectangle rL1 = a1.getBounds();
-        Lettuce a2 = (Lettuce) lets.get(1);
-        Rectangle rL2 = a2.getBounds();
-        Lettuce a3 = (Lettuce) lets.get(2);
-        Rectangle rL3 = a3.getBounds();
+        Lettuce firstLettuce = (Lettuce) lettuceAL.get(0);
+        Rectangle rFirstLettuce = firstLettuce.getBounds();
+        Lettuce secondLettuce = (Lettuce) lettuceAL.get(1);
+        Rectangle rSecondLettuce = secondLettuce.getBounds();
+        Lettuce thirdLettuce = (Lettuce) lettuceAL.get(2);
+        Rectangle rThirdLettuce = thirdLettuce.getBounds();
 
-        Meat m1 = (Meat) meats.get(0);
-        Rectangle rM1 = m1.getBounds();
-        Meat m2 = (Meat) meats.get(1);
-        Rectangle rM2 = m2.getBounds();
-        Meat m3 = (Meat) meats.get(2);
-        Rectangle rM3 = m3.getBounds();
+        Meat firstMeat = (Meat) meatsAL.get(0);
+        Rectangle rfirstMeat = firstMeat.getBounds();
+        Meat secondMeat = (Meat) meatsAL.get(1);
+        Rectangle rsecondMeat = secondMeat.getBounds();
+        Meat thirdMeat = (Meat) meatsAL.get(2);
+        Rectangle rthirdMeat = thirdMeat.getBounds();
 
-        Tomato t1 = (Tomato) toms.get(0);
-        Rectangle rT1 = t1.getBounds();
-        Tomato t2 = (Tomato) toms.get(1);
-        Rectangle rT2 = t2.getBounds();
-        Tomato t3 = (Tomato) toms.get(2);
-        Rectangle rT3 = t3.getBounds();
+        Tomato firstTomato = (Tomato) tomatoesAL.get(0);
+        Rectangle rfirstTomato = firstTomato.getBounds();
+        Tomato secondTomato = (Tomato) tomatoesAL.get(1);
+        Rectangle rsecondTomato = secondTomato.getBounds();
+        Tomato thirdTomato = (Tomato) tomatoesAL.get(2);
+        Rectangle rthirdTomato = thirdTomato.getBounds();
 
-        Onion o1 = (Onion) onis.get(0);
-        Rectangle rO1 = o1.getBounds();
-        Onion o2 = (Onion) onis.get(1);
-        Rectangle rO2 = o2.getBounds();
-        Onion o3 = (Onion) onis.get(2);
-        Rectangle rO3 = o3.getBounds();
+        Onion firstOnion = (Onion) onionsAL.get(0);
+        Rectangle rfirstOnion = firstOnion.getBounds();
+        Onion secondOnion = (Onion) onionsAL.get(1);
+        Rectangle rsecondOnion = secondOnion.getBounds();
+        Onion thirdOnion = (Onion) onionsAL.get(2);
+        Rectangle rthirdOnion = thirdOnion.getBounds();
 
-        Pickle p1 = (Pickle) pics.get(0);
-        Rectangle rP1 = p1.getBounds();
-        Pickle p2 = (Pickle) pics.get(1);
-        Rectangle rP2 = p2.getBounds();
-        Pickle p3 = (Pickle) pics.get(2);
-        Rectangle rP3 = p3.getBounds();
+        Pickle firstPickle = (Pickle) picklesAL.get(0);
+        Rectangle rfirstPickle = firstPickle.getBounds();
+        Pickle secondPickle = (Pickle) picklesAL.get(1);
+        Rectangle rsecondPickle = secondPickle.getBounds();
+        Pickle thirdPickle = (Pickle) picklesAL.get(2);
+        Rectangle rthirdPickle = thirdPickle.getBounds();
 
-        Cheese c1 = (Cheese) ches.get(0);
-        Rectangle rC1 = c1.getBounds();
-        Cheese c2 = (Cheese) ches.get(1);
-        Rectangle rC2 = c2.getBounds();
-        Cheese c3 = (Cheese) ches.get(2);
-        Rectangle rC3 = c3.getBounds();
+        Cheese firstCheese = (Cheese) cheesesAL.get(0);
+        Rectangle rfirstCheese = firstCheese.getBounds();
+        Cheese secondCheese = (Cheese) cheesesAL.get(1);
+        Rectangle rsecondCheese = secondCheese.getBounds();
+        Cheese thirdCheese = (Cheese) cheesesAL.get(2);
+        Rectangle rthirdCheese = thirdCheese.getBounds();
 
-        TopBun b1 = (TopBun) tops.get(0);
-        Rectangle rB1 = b1.getBounds();
-        TopBun b2 = (TopBun) tops.get(1);
-        Rectangle rB2 = b2.getBounds();
-        TopBun b3 = (TopBun) tops.get(2);
-        Rectangle rB3 = b3.getBounds();
+        TopBun firstTopBun = (TopBun) topBunsAL.get(0);
+        Rectangle rfirstTopBun = firstTopBun.getBounds();
+        TopBun secondTopBun = (TopBun) topBunsAL.get(1);
+        Rectangle rsecondTopBun = secondTopBun.getBounds();
+        TopBun thirdTopBun = (TopBun) topBunsAL.get(2);
+        Rectangle rthirdTopBun = thirdTopBun.getBounds();
 
         // the rectangular border of bottom bun collides with a falling
         // ingredient
-        if (border.intersects(rL1) || border.intersects(rL2) || border.intersects(rL3) ||
+        if (border.intersects(rFirstLettuce) || border.intersects(rSecondLettuce) || border.intersects(rThirdLettuce) ||
 
-                border.intersects(rM1) || border.intersects(rM2) || border.intersects(rM3) || border.intersects(rT1)
-                || border.intersects(rT2) || border.intersects(rT3) || border.intersects(rO1) || border.intersects(rO2)
-                || border.intersects(rO3) ||
+                border.intersects(rfirstMeat) || border.intersects(rsecondMeat) || border.intersects(rthirdMeat) || border.intersects(rfirstTomato)
+                || border.intersects(rsecondTomato) || border.intersects(rthirdTomato) || border.intersects(rfirstOnion) || border.intersects(rsecondOnion)
+                || border.intersects(rthirdOnion) ||
 
-                border.intersects(rP1) || border.intersects(rP2) || border.intersects(rP3) || border.intersects(rC1)
-                || border.intersects(rC2) || border.intersects(rC3) ||
+                border.intersects(rfirstPickle) || border.intersects(rsecondPickle) || border.intersects(rthirdPickle) || border.intersects(rfirstCheese)
+                || border.intersects(rsecondCheese) || border.intersects(rthirdCheese) ||
 
-                border.intersects(rB1) || border.intersects(rB2) || border.intersects(rB3)) {
+                border.intersects(rfirstTopBun) || border.intersects(rsecondTopBun) || border.intersects(rthirdTopBun)) {
             // Records that the first ingredient is stacked
             recordStack = true;
 
             // intersects but ingredient not stacked
-            if (border.intersects(rL1) && !a1.isStack()) {
-                border = a1.getBounds();
+            if (border.intersects(rFirstLettuce) && !firstLettuce.hasBeenStacked()) {
+                border = firstLettuce.getBounds();
                 stackN++;
-                a1.stopFall();
-                a1.stack(bun, stackN); // Add ingredient to the burger
+                firstLettuce.stopFall();
+                firstLettuce.stack(bun, stackN); // Add ingredient to the burger
 
                 // Tries left, number of lettuces in the order remaining
-                if (lettuceN == 0)
+                if (numOfLettuce == 0)
                     tries--;
-                if (lettuceN > 0) {
-                    lettuceN--;
+                if (numOfLettuce > 0) {
+                    numOfLettuce--;
                     cash++;
                 }
-            } else if (border.intersects(rL2) && !a2.isStack()) {
-                border = a2.getBounds();
+            } else if (border.intersects(rSecondLettuce) && !secondLettuce.hasBeenStacked()) {
+                border = secondLettuce.getBounds();
                 stackN++;
-                a2.stopFall();
-                a2.stack(bun, stackN);
+                secondLettuce.stopFall();
+                secondLettuce.stack(bun, stackN);
 
-                if (lettuceN == 0)
+                if (numOfLettuce == 0)
                     tries--;
-                if (lettuceN > 0) {
-                    lettuceN--;
+                if (numOfLettuce > 0) {
+                    numOfLettuce--;
                     cash++;
                 }
-            } else if (border.intersects(rL3) && !a3.isStack()) {
-                border = a3.getBounds();
+            } else if (border.intersects(rThirdLettuce) && !thirdLettuce.hasBeenStacked()) {
+                border = thirdLettuce.getBounds();
                 stackN++;
-                a3.stopFall();
-                a3.stack(bun, stackN);
+                thirdLettuce.stopFall();
+                thirdLettuce.stack(bun, stackN);
 
-                if (lettuceN == 0)
+                if (numOfLettuce == 0)
                     tries--;
-                if (lettuceN > 0) {
-                    lettuceN--;
+                if (numOfLettuce > 0) {
+                    numOfLettuce--;
                     cash++;
                 }
 
             }
 
-            else if (border.intersects(rM1) && !m1.isStack()) {
-                border = m1.getBounds();
+            else if (border.intersects(rfirstMeat) && !firstMeat.hasBeenStacked()) {
+                border = firstMeat.getBounds();
                 stackN++;
-                m1.stopFall();
-                m1.stack(bun, stackN);
+                firstMeat.stopFall();
+                firstMeat.stack(bun, stackN);
 
-                if (meatN == 0)
+                if (numOfMeat == 0)
                     tries--;
-                if (meatN > 0) {
-                    meatN--;
+                if (numOfMeat > 0) {
+                    numOfMeat--;
                     cash++;
                 }
-            } else if (border.intersects(rM2) && !m2.isStack()) {
-                border = m2.getBounds();
+            } else if (border.intersects(rsecondMeat) && !secondMeat.hasBeenStacked()) {
+                border = secondMeat.getBounds();
                 stackN++;
-                m2.stopFall();
-                m2.stack(bun, stackN);
+                secondMeat.stopFall();
+                secondMeat.stack(bun, stackN);
 
-                if (meatN == 0)
+                if (numOfMeat == 0)
                     tries--;
-                if (meatN > 0) {
-                    meatN--;
+                if (numOfMeat > 0) {
+                    numOfMeat--;
                     cash++;
                 }
-            } else if (border.intersects(rM3) && !m3.isStack()) {
-                border = m3.getBounds();
+            } else if (border.intersects(rthirdMeat) && !thirdMeat.hasBeenStacked()) {
+                border = thirdMeat.getBounds();
                 stackN++;
-                m3.stopFall();
-                m3.stack(bun, stackN);
+                thirdMeat.stopFall();
+                thirdMeat.stack(bun, stackN);
 
-                if (meatN == 0)
+                if (numOfMeat == 0)
                     tries--;
-                if (meatN > 0) {
-                    meatN--;
+                if (numOfMeat > 0) {
+                    numOfMeat--;
                     cash++;
                 }
-            } else if (border.intersects(rT1) && !t1.isStack()) {
-                border = t1.getBounds();
+            } else if (border.intersects(rfirstTomato) && !firstTomato.hasBeenStacked()) {
+                border = firstTomato.getBounds();
                 stackN++;
-                t1.stopFall();
-                t1.stack(bun, stackN);
+                firstTomato.stopFall();
+                firstTomato.stack(bun, stackN);
 
-                if (tomatoN == 0)
+                if (numOfTomato == 0)
                     tries--;
-                if (tomatoN > 0) {
-                    tomatoN--;
+                if (numOfTomato > 0) {
+                    numOfTomato--;
                     cash++;
                 }
-            } else if (border.intersects(rT2) && !t2.isStack()) {
-                border = t2.getBounds();
+            } else if (border.intersects(rsecondTomato) && !secondTomato.hasBeenStacked()) {
+                border = secondTomato.getBounds();
                 stackN++;
-                t2.stopFall();
-                t2.stack(bun, stackN);
+                secondTomato.stopFall();
+                secondTomato.stack(bun, stackN);
 
-                if (tomatoN == 0)
+                if (numOfTomato == 0)
                     tries--;
-                if (tomatoN > 0) {
-                    tomatoN--;
+                if (numOfTomato > 0) {
+                    numOfTomato--;
                     cash++;
                 }
-            } else if (border.intersects(rT3) && !t3.isStack()) {
-                border = t3.getBounds();
+            } else if (border.intersects(rthirdTomato) && !thirdTomato.hasBeenStacked()) {
+                border = thirdTomato.getBounds();
                 stackN++;
-                t3.stopFall();
-                t3.stack(bun, stackN);
+                thirdTomato.stopFall();
+                thirdTomato.stack(bun, stackN);
 
-                if (tomatoN == 0)
+                if (numOfTomato == 0)
                     tries--;
-                if (tomatoN > 0) {
-                    tomatoN--;
-                    cash++;
-                }
-
-            }
-
-            else if (border.intersects(rO1) && !o1.isStack()) {
-                border = o1.getBounds();
-                stackN++;
-                o1.stopFall();
-                o1.stack(bun, stackN);
-
-                if (onionN == 0)
-                    tries--;
-                if (onionN > 0) {
-                    onionN--;
-                    cash++;
-                }
-            } else if (border.intersects(rO2) && !o2.isStack()) {
-                border = o2.getBounds();
-                stackN++;
-                o2.stopFall();
-                o2.stack(bun, stackN);
-
-                if (onionN == 0)
-                    tries--;
-                if (onionN > 0) {
-                    onionN--;
-                    cash++;
-                }
-            } else if (border.intersects(rO3) && !o3.isStack()) {
-                border = o3.getBounds();
-                stackN++;
-                o3.stopFall();
-                o3.stack(bun, stackN);
-
-                if (onionN == 0)
-                    tries--;
-                if (onionN > 0) {
-                    onionN--;
+                if (numOfTomato > 0) {
+                    numOfTomato--;
                     cash++;
                 }
 
             }
 
-            else if (border.intersects(rP1) && !p1.isStack()) {
-                bun.lessenSpeed();
-                border = p1.getBounds();
+            else if (border.intersects(rfirstOnion) && !firstOnion.hasBeenStacked()) {
+                border = firstOnion.getBounds();
                 stackN++;
-                p1.stopFall();
-                p1.stack(bun, stackN);
+                firstOnion.stopFall();
+                firstOnion.stack(bun, stackN);
 
-                if (pickleN == 0)
+                if (numOfOnion == 0)
                     tries--;
-                if (pickleN > 0) {
-                    pickleN--;
+                if (numOfOnion > 0) {
+                    numOfOnion--;
                     cash++;
                 }
-            } else if (border.intersects(rP2) && !p2.isStack()) {
-                bun.lessenSpeed();
-                border = p2.getBounds();
+            } else if (border.intersects(rsecondOnion) && !secondOnion.hasBeenStacked()) {
+                border = secondOnion.getBounds();
                 stackN++;
-                p2.stopFall();
-                p2.stack(bun, stackN);
+                secondOnion.stopFall();
+                secondOnion.stack(bun, stackN);
 
-                if (pickleN == 0)
+                if (numOfOnion == 0)
                     tries--;
-                if (pickleN > 0) {
-                    pickleN--;
+                if (numOfOnion > 0) {
+                    numOfOnion--;
                     cash++;
                 }
-            } else if (border.intersects(rP3) && !p3.isStack()) {
-                bun.lessenSpeed();
-                border = p3.getBounds();
+            } else if (border.intersects(rthirdOnion) && !thirdOnion.hasBeenStacked()) {
+                border = thirdOnion.getBounds();
                 stackN++;
-                p3.stopFall();
-                p3.stack(bun, stackN);
+                thirdOnion.stopFall();
+                thirdOnion.stack(bun, stackN);
 
-                if (pickleN == 0)
+                if (numOfOnion == 0)
                     tries--;
-                if (pickleN > 0) {
-                    pickleN--;
+                if (numOfOnion > 0) {
+                    numOfOnion--;
                     cash++;
                 }
 
             }
 
-            else if (border.intersects(rC1) && !c1.isStack()) {
-                border = c1.getBounds();
+            else if (border.intersects(rfirstPickle) && !firstPickle.hasBeenStacked()) {
+            	bun.lessenSpeed();
+                border = firstPickle.getBounds();
                 stackN++;
-                c1.stopFall();
-                c1.stack(bun, stackN);
+                firstPickle.stopFall();
+                firstPickle.stack(bun, stackN);
 
-                if (cheeseN == 0)
+                if (numOfPickle == 0)
                     tries--;
-                if (cheeseN > 0) {
-                    cheeseN--;
+                if (numOfPickle > 0) {
+                    numOfPickle--;
                     cash++;
                 }
-            } else if (border.intersects(rC2) && !c2.isStack()) {
-                border = c2.getBounds();
+            } else if (border.intersects(rsecondPickle) && !secondPickle.hasBeenStacked()) {
+            	bun.lessenSpeed();
+                border = secondPickle.getBounds();
                 stackN++;
-                c2.stopFall();
-                c2.stack(bun, stackN);
+                secondPickle.stopFall();
+                secondPickle.stack(bun, stackN);
 
-                if (cheeseN == 0)
+                if (numOfPickle == 0)
                     tries--;
-                if (cheeseN > 0) {
-                    cheeseN--;
+                if (numOfPickle > 0) {
+                    numOfPickle--;
                     cash++;
                 }
-            } else if (border.intersects(rC3) && !c3.isStack()) {
-                border = c3.getBounds();
+            } else if (border.intersects(rthirdPickle) && !thirdPickle.hasBeenStacked()) {
+            	bun.lessenSpeed();
+                border = thirdPickle.getBounds();
                 stackN++;
-                c3.stopFall();
-                c3.stack(bun, stackN);
+                thirdPickle.stopFall();
+                thirdPickle.stack(bun, stackN);
 
-                if (cheeseN == 0)
+                if (numOfPickle == 0)
                     tries--;
-                if (cheeseN > 0) {
-                    cheeseN--;
+                if (numOfPickle > 0) {
+                    numOfPickle--;
                     cash++;
                 }
 
             }
 
-            else if (border.intersects(rB1) && !b1.isStack()) {
+            else if (border.intersects(rfirstCheese) && !firstCheese.hasBeenStacked()) {
+                border = firstCheese.getBounds();
+                stackN++;
+                firstCheese.stopFall();
+                firstCheese.stack(bun, stackN);
+
+                if (numOfCheese == 0)
+                    tries--;
+                if (numOfCheese > 0) {
+                    numOfCheese--;
+                    cash++;
+                }
+            } else if (border.intersects(rsecondCheese) && !secondCheese.hasBeenStacked()) {
+                border = secondCheese.getBounds();
+                stackN++;
+                secondCheese.stopFall();
+                secondCheese.stack(bun, stackN);
+
+                if (numOfCheese == 0)
+                    tries--;
+                if (numOfCheese > 0) {
+                    numOfCheese--;
+                    cash++;
+                }
+            } else if (border.intersects(rthirdCheese) && !thirdCheese.hasBeenStacked()) {
+                border = thirdCheese.getBounds();
+                stackN++;
+                thirdCheese.stopFall();
+                thirdCheese.stack(bun, stackN);
+
+                if (numOfCheese == 0)
+                    tries--;
+                if (numOfCheese > 0) {
+                    numOfCheese--;
+                    cash++;
+                }
+
+            }
+
+            else if (border.intersects(rfirstTopBun) && !firstTopBun.hasBeenStacked()) {
                 border = (null);
                 stackN++;
-                b1.stopFall();
-                b1.stack(bun, stackN);
+                firstTopBun.stopFall();
+                firstTopBun.stack(bun, stackN);
                 topbunB = true;
 
-                if (lettuceN == 0 && meatN == 0 && tomatoN == 0 && onionN == 0 && pickleN == 0 && cheeseN == 0 && tries != 0) {
+                if (numOfLettuce == 0 && numOfMeat == 0 && numOfTomato == 0 && numOfOnion == 0 && numOfPickle == 0 && numOfCheese == 0 && tries != 0) {
                     win = true;
                     
                 }
-            } else if (border.intersects(rB2) && !b2.isStack()) {
+            } else if (border.intersects(rsecondTopBun) && !secondTopBun.hasBeenStacked()) {
                 border = (null);
                 stackN++;
-                b2.stopFall();
-                b2.stack(bun, stackN);
+                secondTopBun.stopFall();
+                secondTopBun.stack(bun, stackN);
                 topbunB = true;
 
-                if (lettuceN == 0 && meatN == 0 && tomatoN == 0 && onionN == 0 && pickleN == 0 && cheeseN == 0 && tries != 0) {
+                if (numOfLettuce == 0 && numOfMeat == 0 && numOfTomato == 0 && numOfOnion == 0 && numOfPickle == 0 && numOfCheese == 0 && tries != 0) {
                     win = true;
                 }
-            } else if (border.intersects(rB3) && !b3.isStack()) {
+            } else if (border.intersects(rthirdTopBun) && !thirdTopBun.hasBeenStacked()) {
                 border = (null);
                 stackN++;
-                b3.stopFall();
-                b3.stack(bun, stackN);
+                thirdTopBun.stopFall();
+                thirdTopBun.stack(bun, stackN);
                 topbunB = true;
 
-                if (lettuceN == 0 && meatN == 0 && tomatoN == 0 && onionN == 0 && pickleN == 0 && cheeseN == 0 && tries != 0) {
+                if (numOfLettuce == 0 && numOfMeat == 0 && numOfTomato == 0 && numOfOnion == 0 && numOfPickle == 0 && numOfCheese == 0 && tries != 0) {
                     win = true;
                 }
 
@@ -712,91 +713,91 @@ public class Order extends JComponent implements ActionListener {
 
         if (topbunB) // If top bun has been collected
         {
-            if (!a1.isStack()) {
+            if (!firstLettuce.hasBeenStacked()) {
 
-                a1.stopFall();
+                firstLettuce.stopFall();
             }
-            if (!a2.isStack()) {
+            if (!secondLettuce.hasBeenStacked()) {
 
-                a2.stopFall();
+                secondLettuce.stopFall();
             }
-            if (!a3.isStack()) {
+            if (!thirdLettuce.hasBeenStacked()) {
 
-                a3.stopFall();
-            }
-
-            if (!m1.isStack()) {
-
-                m1.stopFall();
-            }
-            if (!m2.isStack()) {
-
-                m2.stopFall();
-            }
-            if (!m3.isStack()) {
-
-                m3.stopFall();
+                thirdLettuce.stopFall();
             }
 
-            if (!t1.isStack()) {
+            if (!firstMeat.hasBeenStacked()) {
 
-                t1.stopFall();
+                firstMeat.stopFall();
             }
-            if (!t2.isStack()) {
+            if (!secondMeat.hasBeenStacked()) {
 
-                t2.stopFall();
+                secondMeat.stopFall();
             }
-            if (!t3.isStack()) {
+            if (!thirdMeat.hasBeenStacked()) {
 
-                t3.stopFall();
-            }
-
-            if (!o1.isStack()) {
-
-                o1.stopFall();
-            }
-            if (!o2.isStack()) {
-
-                o2.stopFall();
-            }
-            if (!o3.isStack()) {
-
-                o3.stopFall();
+                thirdMeat.stopFall();
             }
 
-            if (!p1.isStack()) {
+            if (!firstTomato.hasBeenStacked()) {
 
-                p1.stopFall();
+                firstTomato.stopFall();
             }
-            if (!p2.isStack()) {
+            if (!secondTomato.hasBeenStacked()) {
 
-                p2.stopFall();
+                secondTomato.stopFall();
             }
-            if (!p3.isStack()) {
+            if (!thirdTomato.hasBeenStacked()) {
 
-                p3.stopFall();
-            }
-
-            if (!c1.isStack()) {
-
-                c1.stopFall();
-            }
-            if (!c2.isStack()) {
-
-                c2.stopFall();
-            }
-            if (!c3.isStack()) {
-
-                c3.stopFall();
+                thirdTomato.stopFall();
             }
 
-            if (!b2.isStack()) {
+            if (!firstOnion.hasBeenStacked()) {
 
-                b2.stopFall();
+                firstOnion.stopFall();
             }
-            if (!b3.isStack()) {
+            if (!secondOnion.hasBeenStacked()) {
 
-                b3.stopFall();
+                secondOnion.stopFall();
+            }
+            if (!thirdOnion.hasBeenStacked()) {
+
+                thirdOnion.stopFall();
+            }
+
+            if (!firstPickle.hasBeenStacked()) {
+
+                firstPickle.stopFall();
+            }
+            if (!secondPickle.hasBeenStacked()) {
+
+                secondPickle.stopFall();
+            }
+            if (!thirdPickle.hasBeenStacked()) {
+
+                thirdPickle.stopFall();
+            }
+
+            if (!firstCheese.hasBeenStacked()) {
+
+                firstCheese.stopFall();
+            }
+            if (!secondCheese.hasBeenStacked()) {
+
+                secondCheese.stopFall();
+            }
+            if (!thirdCheese.hasBeenStacked()) {
+
+                thirdCheese.stopFall();
+            }
+
+            if (!secondTopBun.hasBeenStacked()) {
+
+                secondTopBun.stopFall();
+            }
+            if (!thirdTopBun.hasBeenStacked()) {
+
+                thirdTopBun.stopFall();
             }
 
         }

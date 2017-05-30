@@ -1,4 +1,4 @@
-package src;
+
 import java.awt.Image;
 import java.awt.Rectangle;
 
@@ -82,7 +82,7 @@ public class Pickle  {
 	}
 
 	/**
-	 * ingredient stops falling
+	 * ingredient stopBunsAL falling
 	 */
 	public void stopFall() {
 		this.fall = false;
@@ -103,7 +103,7 @@ public class Pickle  {
 	 * 
 	 * @return x coordinate x
 	 */
-	public int getXA() {
+	public int getXCoord() {
 		return x;
 	}
 
@@ -112,7 +112,7 @@ public class Pickle  {
 	 * 
 	 * @return y coordinate y
 	 */
-	public int getYA() {
+	public int getYCoord() {
 		return y;
 	}
 
@@ -130,7 +130,7 @@ public class Pickle  {
 	 * 
 	 * @return stacked ingredient is stacked
 	 */
-	public boolean isStack() {
+	public boolean hasBeenStacked() {
 		return stacked;
 	}
 

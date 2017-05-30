@@ -1,9 +1,15 @@
 1.00, hi
 1.00, hellos
+1.00, yeyopo
+1.00, Mr fulk
 2.00, pransu
 3.00, bi
 3.00, sup
 5.00, helo
 6.00, java
+6.00, yeyo
+8.00, ss
+8.00, viv
 9.00, isa
+11.00, panda
 157.00, po
