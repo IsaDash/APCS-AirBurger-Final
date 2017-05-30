@@ -1,0 +1,9 @@
+1.00, hi
+1.00, hellos
+2.00, pransu
+3.00, bi
+3.00, sup
+5.00, helo
+6.00, java
+9.00, isa
+157.00, po
