@@ -595,6 +595,7 @@ public class Order extends JComponent implements ActionListener {
             }
 
             else if (border.intersects(rP1) && !p1.isStack()) {
+                bun.lessenSpeed();
                 border = p1.getBounds();
                 stackN++;
                 p1.stopFall();
@@ -607,6 +608,7 @@ public class Order extends JComponent implements ActionListener {
                     cash++;
                 }
             } else if (border.intersects(rP2) && !p2.isStack()) {
+                bun.lessenSpeed();
                 border = p2.getBounds();
                 stackN++;
                 p2.stopFall();
@@ -619,6 +621,7 @@ public class Order extends JComponent implements ActionListener {
                     cash++;
                 }
             } else if (border.intersects(rP3) && !p3.isStack()) {
+                bun.lessenSpeed();
                 border = p3.getBounds();
                 stackN++;
                 p3.stopFall();
