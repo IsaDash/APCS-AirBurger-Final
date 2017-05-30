@@ -18,21 +18,26 @@ import javax.swing.*;
  */
 public class Bun {
 
-    
+	
 
-    private Image image;
+	private Image image;
 
-    //Fields for coordinates, speed
-    int speedx;
-    int speedy;
-    public int x;
-    public int y;
-    public int speed = 2;
-    private Timer timer;
+	//Fields for coordinates, speed
+	double speedx;
+	double speedy;
+	public int x;
+	public int y;
+	public double speed = 3.0;
+	private Timer timer;
 
-    // Bun dimension
-    private int width;
-    public int height;
+	// Bun dimension
+	private int width;
+	public int height;
+	
+	public void lessenSpeed()
+	{
+		speed = speed - 0.5;
+	}
 
     // Whether bun is visible
     private boolean visible;
